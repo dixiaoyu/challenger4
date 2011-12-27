@@ -1,0 +1,33 @@
+<h1>All members</h1>
+<table>
+  <tr>
+  	<th>Coy_id</th>
+    <th>Member_id</th>
+    <th>DOB</th>
+    <th>Password_changed</th>
+    <th>Last_login</th>
+    <th>Join_date</th>
+    <th>Expiry_date</th>
+    <th>Last_renewal_date</th>
+    <th>Create_date</th>
+    <th>Modify_date</th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+  	<td><%= member.coy_id %></td>
+    <td><%= member.mbr_id %></td>
+    <td><%= member.birth_date %></td>
+    <td><%= member.pwd_changed %></td>
+    <td><%= member.last_login %></td>
+    <td><%= member.join_date %></td>
+    <td><%= member.expiry_date %></td>
+    <td><%= member.last_renewal %></td>
+    <td><%= member.created_on %></td>
+    <td><%= member.modified_on %></td>    
+    <td><%= link_to 'Show', crm_member_list_path(member)%></td> 
+  </tr>
+  
+  
+<% end %>
+</table>
