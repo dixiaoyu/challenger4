@@ -6,7 +6,7 @@ class CrmMemberList < ActiveRecord::Base
   set_primary_keys :coy_id, :mbr_id
   
   attr_accessor :password
-  attr_accessible :mbr_id, :birth_date, :pwd_changed,:last_login, :join_date ,:expiry_date, :last_renewal, :created_on,:modified_on, :password, :password_confirmation      
+  attr_accessible :mbr_id, :password, :password_confirmation, :birth_date, :pwd_changed,:last_login, :join_date ,:expiry_date, :last_renewal, :created_on,:modified_on      
   
   validates :mbr_id,  :presence => true,
                       :length   => { :within => 6..10 },                       
@@ -16,10 +16,10 @@ class CrmMemberList < ActiveRecord::Base
                        :confirmation => true,
                        :length       => { :within => 6..40 } 
                          
-  before_save :mbr_pwd    
+  before_save :encrypt_password    
   
   def has_password?(submitted_password)
-    mbr_pwd == encrypt(submitted_password)
+    self.mbr_pwd == encrypt(submitted_password)
   end  
   
   def self.authenticate(mbr_id, submitted_password)
@@ -28,9 +28,15 @@ class CrmMemberList < ActiveRecord::Base
     return member if member.has_password?(submitted_password)
   end
   
+  def self.authenticate_with_salt(mbr_id, cookie_salt)
+    member = find_by_mbr_id(mbr_id)
+    return nil if member.nil?
+    return member if member.coy_id==cookie_salt
+  end
+  
   private
     
-    def mbr_pwd 
+    def encrypt_password
       self.mbr_pwd = encrypt(password)
     end    
     

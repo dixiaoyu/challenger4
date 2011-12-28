@@ -7,7 +7,7 @@ development:
   adapter: sqlserver
   dsn: mydsn
   mode: odbc  
-  database: challenger4
+  database: challenger4a
   username: daisy
   password:
   
@@ -22,7 +22,7 @@ test:
   adapter: sqlserver
   dsn: mydsn
   mode: odbc  
-  database: db/test.challenger4
+  database: db/test.challenger4a
   username: daisy
   password:
 
@@ -32,6 +32,6 @@ production:
   adapter: sqlserver
   dsn: mydsn
   mode: odbc  
-  database: db/production.challenger4
+  database: db/production.challenger4a
   username: daisy
   password:

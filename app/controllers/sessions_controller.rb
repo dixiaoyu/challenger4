@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    member = CrmMemberList.authenticate(params[:session][:mbr_id],
-                                        params[:session][:password])
+    debugger
+    member = CrmMemberList.authenticate(params[:session][:mbr_id],params[:session][:password])
     if member.nil?       
       flash.now[:error] = "Invalid passport/password combination."
       @title = "Sign in"
@@ -15,7 +15,10 @@ class SessionsController < ApplicationController
     end                             
   end 
 
-  def destory
+  def destory 
+    sign_out
+    redirect_to root_path
   end
+
 
 end

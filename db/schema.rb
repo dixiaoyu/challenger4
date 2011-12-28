@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20111227041305) do
     t.string   "occupation_code",    :limit => 30,                                :default => "",                    :null => false
     t.string   "annual_income",      :limit => 2,                                 :default => "",                    :null => false
     t.string   "education_level",    :limit => 10,                                :default => "",                    :null => false
-    t.string   "mbr_pwd",            :limit => 32,                                :default => "",                    :null => false
+    t.string   "mbr_pwd",            :limit => 40,                                :default => "",                    :null => false
     t.datetime "pwd_changed",                                                     :default => '1900-01-01 00:00:00', :null => false
     t.datetime "last_login",                                                      :default => '1900-01-01 00:00:00', :null => false
     t.string   "mbr_addr",           :limit => 10,                                :default => "",                    :null => false

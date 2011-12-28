@@ -18,7 +18,9 @@ class CrmMemberListsController < ApplicationController
   def create
     @member = CrmMemberList.new(params[:crm_member_list])
     if @member.save
-      #````
+      #sign_in @member
+      #flash[:sucess]="Welcome to Challenger!"
+      redirect_to @member
     else 
       render 'new'  
     end
