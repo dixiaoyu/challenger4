@@ -22,6 +22,12 @@ class CrmMemberList < ActiveRecord::Base
     mbr_pwd == encrypt(submitted_password)
   end  
   
+  def self.authenticate(mbr_id, submitted_password)
+    member = find_by_mbr_id(mbr_id)
+    return nil  if member.nil?
+    return member if member.has_password?(submitted_password)
+  end
+  
   private
     
     def mbr_pwd 
