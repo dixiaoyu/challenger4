@@ -34,8 +34,11 @@ class CreateCrmMemberLists < ActiveRecord::Migration
       t.decimal  "points_reserved",                  :precision => 15, :scale => 2, :default => 0.0,                   :null => false
       t.decimal  "points_redeemed",                  :precision => 15, :scale => 2, :default => 0.0,                   :null => false
       t.decimal  "mbr_savings",                      :precision => 15, :scale => 2, :default => 0.0,                   :null => false
-      t.string   "created_by",         :limit => 15,                                :default => "",                    :null => false
-      t.string   "modified_by",        :limit => 15,                                :default => "",                    :null => false
+      t.string   "created_by",     :limit => 15,                                :default => "",                    :null => false
+      t.datetime "created_on",                                                                                     :null => false
+      t.string   "modified_by",    :limit => 15,                                :default => "",                    :null => false
+      t.datetime "modified_on",                                                 :default => '1900-01-01 00:00:00', :null => false
+      t.datetime "updated_on"
     end
   end
 end

@@ -1,12 +1,26 @@
 Challenger4::Application.routes.draw do
 
-
+  #root
   root :to => 'crm_member_lists#index'
+  
+  #resources
   resources :crm_member_lists
+  resources :crm_product_lists do
+    resources :crm_redemption_lists
+  end  
+  resources :crm_redemption_location
   resources :sessions, :only => [:new, :create, :destory]
+  
+  #sign up/sign in/sign out
   match '/signup' => 'crm_member_lists#new'
   match '/signin' => 'sessions#new'
   match '/signout' => 'sessions#destory'
+  
+  #redemption
+  match '/redemption' => 'crm_redemption_lists#index'
+  
+  #product
+  match '/product' => 'crm_product_lists#index'
   #match ':controller/:action/:id(.:format)', :id => /\w+(,\w+)*/
   #match ':controller(/:action(/:id => /\w+(,\w+)*/(.:format)))'
   # The priority is based upon order of creation:

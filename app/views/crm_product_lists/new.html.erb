@@ -1,0 +1,34 @@
+<h1>New Product</h1>
+<%= form_for(@product) do |f| %> 
+  <div class="field">
+  	<%= f.label :coy_id %><br />
+  	<%= f.text_field :coy_id %>
+  </div>
+  
+    <div class="field">
+  	<%= f.label :item_id %><br />
+  	<%= f.text_field :item_id %>
+  </div>
+  
+    <div class="field">
+  	<%= f.label :loc_id %><br />
+  	<%= f.text_field :loc_id %>
+  </div>
+  
+    <div class="field">
+  	<%= f.label :item_desc %><br />
+  	<%= f.text_field :item_desc %>
+  </div>
+  
+    <div class="field">
+  	<%= f.label :qty_on_hand %><br />
+  	<%= f.text_field :qty_on_hand %>
+  </div>
+  
+
+  
+  <div class="actions">
+  	<%= f.submit "Add" %>
+  </div>
+<% end %>   		
+

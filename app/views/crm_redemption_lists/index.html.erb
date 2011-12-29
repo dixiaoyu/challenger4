@@ -1,0 +1,30 @@
+<h1>All redemptions</h1>
+<table>
+  <tr>
+  	<th>Coy_id</th>
+    <th>Line_num</th>
+    <th>Item_id</th>
+    <th>Points_required</th>
+    <th>eff_from</th>
+    <th>eff_to</th>
+    <th>Create_date</th>
+    <th>Modify_date</th>
+  </tr>
+
+<% @redemptions.each do |redemption| %>
+  <tr>
+  	<td><%= redemption.coy_id %></td>
+    <td><%= redemption.line_num %></td>
+    <td><%= redemption.item_id %></td>
+    <td><%= redemption.points_required %></td>
+    <td><%= redemption.eff_from %></td>
+    <td><%= redemption.eff_to %></td>
+    <td><%= redemption.created_on %></td>
+    <td><%= redemption.updated_on %></td>    
+    <td><%= link_to 'Show', crm_redemption_list_path(redemption)%></td> 
+  </tr>
+  
+  
+<% end %>
+</table>
+

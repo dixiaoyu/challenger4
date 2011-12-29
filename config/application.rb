@@ -46,6 +46,6 @@ module Challenger4
     config.assets.version = '1.0'
     
     config.time_zone = 'Singapore'
-    config.active_record.default_timezone = :local
+    #config.active_record.default_timezone = :local
   end
 end

@@ -1,0 +1,26 @@
+<h1><%=@product.item_desc%></h1>
+<table>
+  <tr>
+  	<th>Coy_id</th>
+    <th>Item_id</th>
+    <th>Loc_id</th>
+    <th>Item_Desc</th>
+    <th>Quantity_on_hand</th>
+    <th>Create_date</th>
+    <th>Modify_date</th>
+  </tr>
+
+
+
+  <tr>
+  	<td><%= @product.coy_id %></td>
+    <td><%= @product.item_id %></td>
+    <td><%= @product.loc_id %></td>
+    <td><%= @product.item_desc %></td>
+    <td><%= @product.qty_on_hand %></td>
+    <td><%= @product.created_on %></td>
+    <td><%= @product.updated_on %></td>        
+  </tr>  
+
+
+</table>
